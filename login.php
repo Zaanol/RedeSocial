@@ -5,7 +5,8 @@
 		<script src="js/bootstrap.min.js"></script>
 		<link href='css/bootstrap.min.css' rel='stylesheet' type='text/css'>
 		<link href='css/util.css' rel='stylesheet' type='text/css'>
-		
+		<title>SociaLike | Entrar | Conecte-se ao Mundo</title>
+		<link rel="shortcut icon" href="img/icone.ico" >
 	</head>
 	<body>
 		<div class="wrapper fadeInDown">
@@ -26,12 +27,12 @@
 							<button type='button' class='close' data-dismiss='alert' aria-label='Close'>
 							<span aria-hidden='true'>&times;</span>
 							</button>
-						</div>";
-						$foco = "password";
-					}else{
-						setcookie("login",$email);
-						header("location: ./");
-					}
+							</div>";
+							$foco = "password";
+						}else{
+							setcookie("login",$email);
+							header("location: ./");
+						}
 					}
 				?>
 
@@ -40,9 +41,9 @@
 				</div>
 
 				<form method="POST">
-				<input type="text" id="email" name="email" placeholder="Endereço e-mail" value="<?php echo $email;?>">
-				<input type="password" id="password" name="pass" placeholder="Senha">
-				<input type="submit" value="Entrar" name="entrar" value="Entrar">
+					<input type="text" id="email" name="email" placeholder="Endereço e-mail" value="<?php echo $email;?>">
+					<input type="password" id="password" name="pass" placeholder="Senha">
+					<input type="submit" value="Entrar" name="entrar" value="Entrar">
 				</form>
 
 				<div id="formFooter">

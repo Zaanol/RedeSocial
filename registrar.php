@@ -43,6 +43,8 @@
 			<script src="js/bootstrap.min.js"></script>
 			<link href='css/bootstrap.min.css' rel='stylesheet' type='text/css'>
 			<link href='css/util.css' rel='stylesheet' type='text/css'>
+			<title>SociaLike | Cadastrar-se | Conecte-se ao Mundo</title>
+			<link rel="shortcut icon" href="img/icone.ico" >
 	</head>
 	<body>
 		<div class="wrapper fadeInDown">

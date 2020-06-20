@@ -1,6 +1,8 @@
 <?php
 	include("header.php");
 
+	mysqli_query($conexao, "UPDATE notificacoes SET `status` = 1 WHERE `userpara`='$login_cookie'");
+
 	$pubs = mysqli_query($conexao, "SELECT * FROM amizades WHERE para='$login_cookie' AND aceite='nao' ORDER BY id desc");
 	$notificacoes = mysqli_query($conexao, "SELECT * FROM notificacoes WHERE userpara='$login_cookie' ORDER BY id desc");
 
