@@ -9,6 +9,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<script src="js/jquery.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<link href='css/bootstrap.min.css' rel='stylesheet' type='text/css'>
 	<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
 	<style type="text/css">
 	*{font-family: 'Montserrat', cursive; margin: 0;}

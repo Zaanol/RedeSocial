@@ -62,7 +62,7 @@
 				$email = $pub['de'];
 				$saberr = mysqli_query($conexao, "SELECT * FROM users WHERE email='$email'");
 				$saber = mysqli_fetch_assoc($saberr);
-				$nome = $saber['nome']." ".$saber['apelido'];
+				$nome = $saber['nome']." (".$saber['apelido'].")";
 				$id = $pub['id'];
 
 				echo '<div class="pub" id="'.$id.'">
