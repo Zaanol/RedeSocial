@@ -49,19 +49,34 @@
 								<i class="fa fa-comments fa-2x" aria-hidden="true"></i>
 							</a>
 						</div>
-						<div class="col-sm">
-							<a href="notificacoes.php" data-toggle="tooltip" title="Notificações">
+						<div class="col-sm btn-group">
+							<a href="notificacoes.php" id="quadroNotificacoes" class="dropdown-toggle" data-toggle="dropdown" data-toggle="tooltip" title="Notificações">
 								<div class="col align-self-end">
 									<div id="qtdNotificacoes"></div>
 								</div>
 								<i class="fa fa-bell fa-2x" aria-hidden="true"></i>
 							</a>
+							<div class="caixaNotificacoes dropdown-menu dropdown-menu-right" id="notificacoes">
+							
+							</div>
 						</div>
-						<div class="col-sm">
-							<a href="myprofile.php" data-toggle="tooltip" title="Perfil"><i class="fa fa-user fa-2x" aria-hidden="true"></i></a>
-						</div>
-						<div class="col-sm">
-							<a href="#" data-toggle="tooltip" title="Configurações"><i class="fa fa-cog fa-2x" aria-hidden="true"></i></a>
+						<div class="col-sm btn-group">
+							<a href="myprofile.php" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-toggle="tooltip" title="Perfil"><i class="fa fa-user fa-2x" aria-hidden="true"></i></a>
+							<div class="dropdown-menu dropdown-menu-right">
+								<button onclick="location.href='myprofile.php'" class="dropdown-item" type="button">
+									<i class="fa fa-eye" aria-hidden="true"></i>
+									Visualizar
+								</button>
+								<button onclick="location.href='settings.php'" class="dropdown-item" type="button">
+									<i class="fa fa-cog" aria-hidden="true"></i>
+									Configurar
+								</button>
+								<div class="dropdown-divider"></div>
+								<button onclick="location.href='logout.php'" class="dropdown-item" type="button">
+									<i class="fa fa-power-off" aria-hidden="true"></i>
+									Deslogar
+								</button>
+							</div>
 						</div>
 					</div>
 				</ul>
@@ -78,5 +93,21 @@
 			$('#qtdMensagens').load('ajax/buscaMensagens.php');
 			$('#qtdNotificacoes').load('ajax/buscaNotificacoes.php');
 		}
+
+		$("#quadroNotificacoes").click( function exibeNotificacoes() {
+			$('#notificacoes').load('notificacoes.php');
+		});
+
+		function acaoAmizade(id, acao){
+			$.ajax({
+			type: 'post',
+			url: 'ajax/acaoAmizade.php',
+			data: {
+				id: id,
+				acao: acao
+			}
+			});
+		}
+		
 	</script>
 </html>

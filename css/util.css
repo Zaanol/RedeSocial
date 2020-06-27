@@ -186,3 +186,13 @@ input[type=text]:placeholder {
 #icon {
   width:60%;
 }
+
+.caixaNotificacoes {
+  width: 450%;
+  height: 1400%;
+  overflow-y: scroll;
+}
+
+.caixaNotificacoes::-webkit-scrollbar {
+  display: none;
+}

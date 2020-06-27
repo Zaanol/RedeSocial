@@ -29,6 +29,7 @@
 		$data = date("Y/m/d");
 
 		$ins = "INSERT INTO amizades (`de`,`para`,`data`) VALUES ('$login_cookie','$email','$data')";
+		mysqli_query($conexao, "INSERT INTO notificacoes (`userde`,`userpara`,`tipo`,`data`) VALUES ('$login_cookie','$email','3','$data')");
 		$conf = mysqli_query($conexao, $ins) or die(mysqli_error());
 		if ($conf) {
 			header("Location: profile.php?id=".$id);
@@ -55,6 +56,7 @@
 		$ins = "DELETE FROM amizades WHERE `de`='$login_cookie' AND para='$email'";
 		$conf = mysqli_query($conexao, $ins) or die(mysqli_error());
 		if ($conf) {
+			mysqli_query($conexao, "UPDATE notificacoes SET status = 1 WHERE userpara = '$email' AND userde = '$login_cookie' AND tipo = 3");
 			header("Location: profile.php?id=".$id);
 		}else{
 			echo "<h3>Erro ao cancelar pedido...</h3>";

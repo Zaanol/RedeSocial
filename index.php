@@ -146,7 +146,7 @@
 			$email = $pub['user'];
 			$saberr = mysqli_query($conexao, "SELECT * FROM users WHERE email='$email'");
 			$saber = mysqli_fetch_assoc($saberr);
-			$nome = $saber['nome']." ".$saber['apelido'];
+			$nome = $saber['nome']." (".$saber['apelido'].")";
 			$id = $pub['id'];
 			$saberloves = mysqli_query($conexao, "SELECT * FROM loves WHERE pub='$id'");
 			$loves = mysqli_num_rows($saberloves);
