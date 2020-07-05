@@ -43,7 +43,6 @@ if (isset($_POST['cancel'])) {
 		img[name="p"] {
 			display: block;
 			margin: auto;
-			margin-top: 20px;
 			width: 200px;
 		}
 
@@ -81,7 +80,7 @@ if (isset($_POST['cancel'])) {
 
 		input[type="submit"] {
 			border: none;
-			margin-top: 20px;
+			margin-top: 27px;
 			border-radius: 3px;
 		}
 
@@ -108,23 +107,29 @@ if (isset($_POST['cancel'])) {
 		}
 
 		#definicoes{
-		
+			color:#1E90FF;
 			
 		}
 	</style>
 </head>
 
 <body>
-	<img name="p" src="img/logoModificado.png"><br />
+	<div class="wrapper fadeInDown">
+		<div id="formContent">
+			<br>
+			<img name="p" src="img/logoModificado.png"><br />
 	
-	<center><h2 id ="definicoes">Alterar as definições pessoais</h2></center>
+			<center><h3 id ="definicoes">Alterar as definições pessoais</h3></center>
 	
-	<form method="POST">
-		<input type="text" placeholder="Primeiro nome" value="<?php echo $info['nome']; ?>" name="nome"><br />
-		<input type="text" placeholder="Apelido" value="<?php echo $info['apelido']; ?>" name="apelido"><br />
-		<input type="password" placeholder="Palavra-passe" value="<?php echo $info['password']; ?>" name="pass"><br />
-		<input type="submit" value="Atualizar info" name="criar">&nbsp;&nbsp;&nbsp;<input type="submit" value="Cancelar" name="cancel">
-	</form>
+			<form method="POST">
+				<input type="text" placeholder="Primeiro nome" value="<?php echo $info['nome']; ?>" name="nome"><br />
+				<input type="text" placeholder="Apelido" value="<?php echo $info['apelido']; ?>" name="apelido"><br />
+				<input type="password" placeholder="Palavra-passe" value="<?php echo $info['password']; ?>" name="pass"><br />
+				<input type="submit" value="Atualizar info" name="criar">&nbsp;&nbsp;&nbsp;<input type="submit" value="Cancelar" name="cancel">
+			</form>			
+		</div>
+	</div>
+	
 </body>
 
 </html>
