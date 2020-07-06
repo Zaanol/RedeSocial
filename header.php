@@ -5,6 +5,15 @@ $login_cookie = $_COOKIE['login'];
 if (!isset($login_cookie)) {
 	header("Location: login.php");
 }
+
+$usuario = mysqli_fetch_assoc(mysqli_query($conexao, "SELECT * FROM users WHERE email='$login_cookie'"));
+
+if ($usuario["img"] == "") {
+	$imagemUsuario = "img/user.png";
+} else {
+	$imagemUsuario = "upload/".$usuario['img'];
+}
+
 ?>
 <!DOCTYPE html>
 <html>
