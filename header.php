@@ -53,7 +53,7 @@ if ($usuario["img"] == "") {
 			<ul class="form-inline my-2 my-lg-0">
 				<div class="row align-items-end">
 					<div class="col-sm">
-						<a href="inbox.php" data-toggle="tooltip" title="Inbox de Conversas">
+						<a href="chat.php" data-toggle="tooltip" title="Inbox de Conversas">
 							<div class="col align-self-end">
 								<div id="qtdMensagens"></div>
 							</div>
