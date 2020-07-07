@@ -75,13 +75,14 @@ if (isset($_POST['cancel'])) {
 			height: 25px;
 			padding-left: 10px;
 			margin-top: 10px;
+			margin-bottom: 30px;
 			border-radius: 3px;
 		}
 
 		input[type="submit"] {
 			border: none;
-			margin-top: 27px;
 			border-radius: 3px;
+			margin-bottom: 27px;
 		}
 
 		input[type="submit"]:hover {
@@ -110,6 +111,9 @@ if (isset($_POST['cancel'])) {
 			color:#1E90FF;
 			
 		}
+		#footer{
+			color: white;
+		}
 	</style>
 </head>
 
@@ -129,7 +133,10 @@ if (isset($_POST['cancel'])) {
 			</form>			
 		</div>
 	</div>
-	
+	<br />
+	<div id="footer">
+		<p>&copy; Rede Social, 2020 - Todos os direitos reservados</p>
+	</div><br />
 </body>
 
 </html>

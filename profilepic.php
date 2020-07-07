@@ -47,8 +47,6 @@ if (isset($_POST['save'])) {
 		}
 
 		input[type="submit"] {
-			width: 100px;
-			height: 25px;
 			border: none;
 			border-radius: 3px;
 			background-color: #007fff;
