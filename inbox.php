@@ -28,6 +28,7 @@ $contagem = mysqli_num_rows($ups);
 			max-width: 500px;
 			display: block;
 			margin: auto;
+			background-color: white;
 		}
 
 		div#box:hover {
@@ -44,12 +45,15 @@ $contagem = mysqli_num_rows($ups);
 
 		h1 {
 			text-align: center;
-			color: #007fff;
+			color: white;
 		}
 
 		h3 {
 			text-align: center;
 			color: #AAA;
+		}
+		#footer{
+			color: white;
 		}
 	</style>
 </header>
@@ -75,7 +79,8 @@ $contagem = mysqli_num_rows($ups);
 			?>
 		</div>
 	</form>
-	<br /><br />
+	<br /><br /><br><br>
+	<br><br><br><br><br>
 	<div id="footer">
 		<p>&copy; Rede Social, 2020 - Todos os direitos reservados</p>
 	</div><br />
