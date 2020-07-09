@@ -1,5 +1,6 @@
 <?php
-	$dbServidor = "127.0.0.1:3306";
+	$dbServidor = "127.0.0.1:3307";
+
 	$dbUsuario  = "root";
 	$dbSenha    = "";
 	$dbBanco    = "redeSocial";
@@ -8,7 +9,7 @@
 	
 	if (mysqli_connect_errno($conexao))
 	{
-		echo "<h1>Erro ao conectar-se ao banco de dados. </h1>";
+		echo "<h1>Problema ao conectar com o banco! Verifique.</h1>";
 		die();
-	}	
+	}
 ?>
