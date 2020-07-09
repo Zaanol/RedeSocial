@@ -8,7 +8,7 @@
 	
 	if (mysqli_connect_errno($conexao))
 	{
-		echo "<h1>Erro ao conectar-se ao banco de dados. </h1>";
+		echo "<h1>Problema ao conectar com o banco! Verifique.</h1>";
 		die();
-	}	
+	}
 ?>

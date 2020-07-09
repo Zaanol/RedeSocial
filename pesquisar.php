@@ -7,13 +7,13 @@ include("header.php");
 		h3 {
 			text-align: center;
 			font-size: 32px;
-			color: #666;
+			color: white;
 		}
 
 		h2 {
 			text-align: center;
 			font-size: 46px;
-			color: #666;
+			color: white;
 		}
 
 		p[name="p"] {
@@ -40,7 +40,8 @@ include("header.php");
 </header>
 
 <body>
-	<h2>Resultados da tua pesquisa</h2><br />
+	<center><h2>Resultados da tua pesquisa</h2><br /></center>
+	
 	<?php
 	$query = $_GET['query'];
 
@@ -62,7 +63,7 @@ include("header.php");
 			echo "<br /><h3>Não foram encontrados resultados...</h3>";
 		}
 	} else {
-		echo "<br /><h3>Tens de escrever pelo menos 3 letras...</h3>";
+		echo "<br /><h3>Encreva pelo menos 3 letras...</h3>";
 	}
 	?>
 </body>
