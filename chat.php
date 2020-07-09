@@ -117,6 +117,13 @@ $contagem = mysqli_num_rows($ups);
 			$("#back").click(function(){
 				$(".message-box").hide();
 			});
+			var url   = window.location.search.replace("?", "");
+			var param = url.split("&");
+			var codUsuario = param[0].toString().split("=");
+			var email = param[1].toString().split("=");
+			if(codUsuario > "0"){
+				selecionarAmigo(codUsuario[1], email[1]);
+			}
 		});
 
 		$('#sendButtom').click(function() {

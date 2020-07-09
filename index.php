@@ -273,7 +273,7 @@ function unlove()
 			$do_email_check = mysqli_num_rows($email_check);
 			if ($do_email_check >= 1) {
 				$loves = $loves - 1;
-				echo '<p><a href="index.php?unlove=' . $id . '">Gostei</a> | Tu e mais ' . $loves . ' gostaram disto</p>';
+				echo '<p><a href="index.php?unlove=' . $id . '">Gostei</a> | Você e mais ' . $loves . ' gostaram disto</p>';
 			} else {
 				echo '<p><a href="index.php?love=' . $id . '">Gostar</a> | ' . $loves . ' gostaram disto</p>';
 			}
@@ -290,7 +290,7 @@ function unlove()
 			$do_email_check = mysqli_num_rows($email_check);
 			if ($do_email_check >= 1) {
 				$loves = $loves - 1;
-				echo '<p><a href="index.php?unlove=' . $id . '">Gostei</a> | Tu e mais ' . $loves . ' gostaram disto</p>';
+				echo '<p><a href="index.php?unlove=' . $id . '">Gostei</a> | Você e mais ' . $loves . ' gostaram disto</p>';
 			} else {
 				echo '<p><a href="index.php?love=' . $id . '">Gostar</a> | ' . $loves . ' gostaram disto</p>';
 			}
