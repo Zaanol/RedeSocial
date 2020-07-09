@@ -30,6 +30,7 @@ function add()
 	$data = date("Y/m/d");
 
 	$ins = "INSERT INTO amizades (`de`,`para`,`data`) VALUES ('$login_cookie','$email','$data')";
+	mysqli_query($conexao, "INSERT INTO notificacoes (`userde`,`userpara`,`tipo`,`data`) VALUES ('$login_cookie','$email','3','$data')");
 	$conf = mysqli_query($conexao, $ins) or die(mysqli_error());
 	if ($conf) {
 		header("Location: profile.php?id=" . $id);
@@ -68,7 +69,7 @@ if (isset($_POST['remover'])) {
 }
 
 if (isset($_POST['chat'])) {
-	header("Location: chat.php?from=" . $id);
+	header("Location: chat.php?from=".$id."&email=".$email);
 }
 
 function remove()
@@ -255,15 +256,20 @@ function aceitar()
 				$amigoss = mysqli_fetch_assoc($amigos);
 
 				if (mysqli_num_rows($amigos) >= 1 and $amigoss["aceite"] == "sim") {
-					echo '<input type="submit" value="Remover amigo" name="remover"><input type="submit" name="chat" value="Conversar"><input type="submit" name="denunciar" value="Denunciar">';
+					echo '<button type="submit" class="btn btn-primary" name="remover">Remover amigo</button>
+					<button type="submit" class="btn btn-primary" name="chat">Conversar</button>';
 				} elseif (mysqli_num_rows($amigos) >= 1 and $amigoss["aceite"] == "nao" and $amigoss["para"] == $login_cookie) {
-					echo '<input type="submit" value="Aceitar pedido" name="aceitar"><input type="submit" name="chat" value="Conversar"><input type="submit" name="denunciar" value="Denunciar">';
+					echo '<button type="submit" class="btn btn-primary" name="aceitar">Aceitar peidido</button>
+					<button type="submit" class="btn btn-primary" name="chat">Conversar</button>';
 				} elseif (mysqli_num_rows($amigos) >= 1 and $amigoss["aceite"] == "nao" and $amigoss["de"] == $login_cookie) {
-					echo '<input type="submit" value="Cancelar pedido" name="cancelar"><input type="submit" name="chat" value="Conversar"><input type="submit" name="denunciar" value="Denunciar">';
+					echo '<button type="submit" class="btn btn-primary" name="cancelar">Cancelar pedido</button>
+					<button type="submit" class="btn btn-primary" name="chat">Conversar</button>';
 				} else {
-					echo '<input type="submit" value="Adicionar amigo" name="add"><input type="submit" name="chat" value="Conversar"><input type="submit" name="denunciar" value="Denunciar">';
+					echo '<button type="submit" class="btn btn-primary" name="add">Adicionar amigo</button>
+						<button type="submit" class="btn btn-primary" name="chat">Conversar</button>';
 				}
 				?>
+				<br><br>
 			</div>
 		</form>
 	</div>

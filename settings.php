@@ -129,7 +129,7 @@ if (isset($_POST['cancel'])) {
 				<input type="text" placeholder="Primeiro nome" value="<?php echo $info['nome']; ?>" name="nome"><br />
 				<input type="text" placeholder="Apelido" value="<?php echo $info['apelido']; ?>" name="apelido"><br />
 				<input type="password" placeholder="Palavra-passe" value="<?php echo $info['password']; ?>" name="pass"><br />
-				<input type="submit" value="Atualizar info" name="criar">&nbsp;&nbsp;&nbsp;<input type="submit" value="Cancelar" name="cancel">
+				<input type="submit" value="Atualizar Perfil" name="criar">&nbsp;&nbsp;&nbsp;<input type="submit" value="Cancelar" name="cancel">
 			</form>			
 		</div>
 	</div>

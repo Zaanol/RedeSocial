@@ -63,20 +63,10 @@ $contagem = mysqli_num_rows($ups);
 								<form name="send" id="send" method="POST">
 									<textarea cols="10" rows="2" name="text" id="text" class="form-control"> </textarea>
 									<input name="email" id="email" type="hidden" value=""> 
-									<ul class="list-inline"> 
+									<ul class="list-inline">
 										<li>
-											<a href="" id="attach">  <i class="fas fa-paperclip"></i> </a> 
-											<div class="attachement">
-												<ul class="list-inline"> 
-													<li> <a href="#"> <i class="fas fa-file"></i> </a> </li> 
-													<li> <a href="#"> <i class="fas fa-camera"></i> </a> </li> 
-													<li> <a href="#"> <i class="fas fa-image"></i> </a> </li> 
-													<li> <a href="#"> <i class="far fa-play-circle"></i> </a> </li> 
-													<li> <a href="#"> <i class="fas fa-map-marker-alt"></i> </a> </li> 
-													<li> <a href="#"> <i class="fas fa-id-card"></i> </a> </li> 
-												</ul>
-											</div> 
-										</li>	  
+											<i class="fas fa-paperclip" ></i>  
+										</li>
 										<li><div id="sendButtom"><i class="fas fa-paper-plane"></i></div></li>
 									</ul>
 								</form>
@@ -117,6 +107,13 @@ $contagem = mysqli_num_rows($ups);
 			$("#back").click(function(){
 				$(".message-box").hide();
 			});
+			var url   = window.location.search.replace("?", "");
+			var param = url.split("&");
+			var codUsuario = param[0].toString().split("=");
+			var email = param[1].toString().split("=");
+			if(codUsuario > "0"){
+				selecionarAmigo(codUsuario[1], email[1]);
+			}
 		});
 
 		$('#sendButtom').click(function() {
