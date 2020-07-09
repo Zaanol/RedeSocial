@@ -31,9 +31,9 @@ if (isset($_POST['amigos'])) {
 			display: block;
 			margin: auto;
 			margin-top: 50px;
-			border: 6px solid #007fff;
-			background-color: #007fff;
-			border-radius: 50px;
+			border: 6px solid white;
+			background-color: white;
+			border-radius: 10px;
 			margin-bottom: 30px;
 
 
@@ -46,7 +46,6 @@ if (isset($_POST['amigos'])) {
 			margin: auto;
 			border: none;
 			border-radius: 5px;
-			background-color: #007fff;
 			text-align: center;
 		}
 
@@ -114,6 +113,9 @@ if (isset($_POST['amigos'])) {
 			margin-top: 10px;
 			border-bottom-left-radius: 5px;
 			border-bottom-right-radius: 5px;
+		}
+		#footer{
+			color:white;
 		}
 	</style>
 </header>

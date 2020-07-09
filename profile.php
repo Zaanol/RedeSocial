@@ -30,7 +30,6 @@ function add()
 	$data = date("Y/m/d");
 
 	$ins = "INSERT INTO amizades (`de`,`para`,`data`) VALUES ('$login_cookie','$email','$data')";
-	mysqli_query($conexao, "INSERT INTO notificacoes (`userde`,`userpara`,`tipo`,`data`) VALUES ('$login_cookie','$email','3','$data')");
 	$conf = mysqli_query($conexao, $ins) or die(mysqli_error());
 	if ($conf) {
 		header("Location: profile.php?id=" . $id);
@@ -58,7 +57,6 @@ function cancel()
 	$ins = "DELETE FROM amizades WHERE `de`='$login_cookie' AND para='$email'";
 	$conf = mysqli_query($conexao, $ins) or die(mysqli_error());
 	if ($conf) {
-		mysqli_query($conexao, "UPDATE notificacoes SET status = 1 WHERE userpara = '$email' AND userde = '$login_cookie' AND tipo = 3");
 		header("Location: profile.php?id=" . $id);
 	} else {
 		echo "<h3>Erro ao cancelar pedido...</h3>";
@@ -90,7 +88,7 @@ function remove()
 	if ($conf) {
 		header("Location: profile.php?id=" . $id);
 	} else {
-		echo "<h3>Erro ao excluir amigo...</h3>";
+		echo "<h3>Erro ao eliminar amizade...</h3>";
 	}
 }
 
@@ -115,7 +113,7 @@ function aceitar()
 	if ($conf) {
 		header("Location: profile.php?id=" . $id);
 	} else {
-		echo "<h3>Erro ao excluir amigo...</h3>";
+		echo "<h3>Erro ao eliminar amizade...</h3>";
 	}
 }
 ?>
@@ -134,49 +132,46 @@ function aceitar()
 			display: block;
 			margin: auto;
 			margin-top: 30px;
-			border: 5px solid #007fff;
-			background-color: #007fff;
 			border-radius: 10px;
 			margin-bottom: -30px;
 		}
 
 		div#menu {
 			width: 400px;
-			height: 120px;
 			display: block;
 			margin: auto;
 			border: none;
 			border-radius: 5px;
-			background-color: #007fff;
 			text-align: center;
+			margin-top: 50px;
+			
 		}
 
 		div#menu input {
-			height: 25px;
-			border: none;
-			border-radius: 3px;
-			background-color: #FFF;
+			background-color: #1E90FF;
+			color: #FFF;
 			cursor: pointer;
+			margin-bottom: 25px;
 		}
 
 		div#menu input[name="add"] {
-			margin-right: 20px;
+
 		}
 
 		div#menu input[name="aceitar"] {
-			margin-right: 20px;
+
 		}
 
 		div#menu input[name="remover"] {
-			margin-right: 20px;
+
 		}
 
 		div#menu input[name="cancelar"] {
-			margin-right: 20px;
+
 		}
 
 		div#menu input[name="chat"] {
-			margin-right: 20px;
+			
 		}
 
 		div#menu input:hover {
@@ -232,6 +227,13 @@ function aceitar()
 			border-bottom-left-radius: 5px;
 			border-bottom-right-radius: 5px;
 		}
+
+		#nomedoamigo {
+			color: #007bff;
+		}
+		#footer{
+			color: white;
+		}
 	</style>
 </header>
 
@@ -245,21 +247,27 @@ function aceitar()
 	?>
 	<div id="menu">
 		<form method="POST">
-			<h2><?php echo $saber['nome'] . " (" . $saber['apelido'] . ")"; ?></h2><br />
-			<?php
-			$amigos = mysqli_query($conexao, "SELECT * FROM amizades WHERE de='$login_cookie' AND para='$email' OR para='$login_cookie' AND de='$email'");
-			$amigoss = mysqli_fetch_assoc($amigos);
-			if (mysqli_num_rows($amigos) >= 1 and $amigoss["aceite"] == "sim") {
-				echo '<input type="submit" value="Remover amigo" name="remover"><input type="submit" name="chat" value="Conversar"><input type="submit" name="denunciar" value="Denunciar">';
-			} elseif (mysqli_num_rows($amigos) >= 1 and $amigoss["aceite"] == "nao" and $amigoss["para"] == $login_cookie) {
-				echo '<input type="submit" value="Aceitar pedido" name="aceitar"><input type="submit" name="chat" value="Conversar"><input type="submit" name="denunciar" value="Denunciar">';
-			} elseif (mysqli_num_rows($amigos) >= 1 and $amigoss["aceite"] == "nao" and $amigoss["de"] == $login_cookie) {
-				echo '<input type="submit" value="Cancelar pedido" name="cancelar"><input type="submit" name="chat" value="Conversar"><input type="submit" name="denunciar" value="Denunciar">';
-			} else {
-				echo '<input type="submit" value="Adicionar amigo" name="add"><input type="submit" name="chat" value="Conversar"><input type="submit" name="denunciar" value="Denunciar">';
-			}
-			?>
+			<div id="formContent">
+				<h2 id="nomedoamigo"><?php echo $saber['nome'] . " (" . $saber['apelido'] . ")"; ?></h2><br />
+
+				<?php
+				$amigos = mysqli_query($conexao, "SELECT * FROM amizades WHERE de='$login_cookie' AND para='$email' OR para='$login_cookie' AND de='$email'");
+				$amigoss = mysqli_fetch_assoc($amigos);
+
+				if (mysqli_num_rows($amigos) >= 1 and $amigoss["aceite"] == "sim") {
+					echo '<input type="submit" value="Remover amigo" name="remover"><input type="submit" name="chat" value="Conversar"><input type="submit" name="denunciar" value="Denunciar">';
+				} elseif (mysqli_num_rows($amigos) >= 1 and $amigoss["aceite"] == "nao" and $amigoss["para"] == $login_cookie) {
+					echo '<input type="submit" value="Aceitar pedido" name="aceitar"><input type="submit" name="chat" value="Conversar"><input type="submit" name="denunciar" value="Denunciar">';
+				} elseif (mysqli_num_rows($amigos) >= 1 and $amigoss["aceite"] == "nao" and $amigoss["de"] == $login_cookie) {
+					echo '<input type="submit" value="Cancelar pedido" name="cancelar"><input type="submit" name="chat" value="Conversar"><input type="submit" name="denunciar" value="Denunciar">';
+				} else {
+					echo '<input type="submit" value="Adicionar amigo" name="add"><input type="submit" name="chat" value="Conversar"><input type="submit" name="denunciar" value="Denunciar">';
+				}
+				?>
+			</div>
 		</form>
+	</div>
+
 	</div>
 	<?php
 	$saberr = mysqli_query($conexao, "SELECT * FROM users WHERE email='$email'");
@@ -288,10 +296,12 @@ function aceitar()
 	} elseif ($amigos == 0) {
 		echo '<div class="pub" id="' . $id . '">
 						<p>Aviso sobre as amizades...</p>
-						<span>Tens de ser amigo(a) de ' . $nome . ' para poderes ver as suas publicações...</span><br />
+						<span>Perfil bloqueado pelo usuário ' . $nome . ' para visualizar as publicações precisa solicitar amizade</span><br />
 					</div>';
 	}
 	?>
+	<br />
+
 	<br />
 	<div id="footer">
 		<p>&copy; Rede Social, 2020 - Todos os direitos reservados</p>

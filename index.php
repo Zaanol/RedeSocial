@@ -24,14 +24,14 @@ if (isset($_POST['publish'])) {
 		$hoje = date("Y-m-d");
 
 		if ($texto == "") {
-			echo "<h3>Tens de escrever alguma coisa antes de publicar!</h3>";
+			echo "<h3>Escreva algo antes de publicar</h3>";
 		} else {
 			$query = "INSERT INTO pubs (user,texto,data) VALUES ('$login_cookie','$texto','$hoje')";
 			$data = mysqli_query($conexao, $query) or die();
 			if ($data) {
 				header("Location: ./");
 			} else {
-				echo "Alguma coisa não correu lá muito bem... Tenta outra vez mais tarde";
+				echo "Algo deu errado, tente outra vez mais tarde.";
 			}
 		}
 	} else {
@@ -44,14 +44,14 @@ if (isset($_POST['publish'])) {
 		$hoje = date("Y-m-d");
 
 		if ($texto == "") {
-			echo "<h3>Tens de escrever alguma coisa antes de publicar!</h3>";
+			echo "<h3>Escreva algo antes de publicar!</h3>";
 		} else {
 			$query = "INSERT INTO pubs (user,texto,imagem,data) VALUES ('$login_cookie','$texto','$img','$hoje')";
 			$data = mysqli_query($conexao, $query) or die();
 			if ($data) {
 				header("Location: ./");
 			} else {
-				echo "Alguma coisa não correu lá muito bem... Tenta outra vez mais tarde";
+				echo "Algo deu errado, tente outra vez mais tarde.";
 			}
 		}
 	}
@@ -115,11 +115,12 @@ function unlove()
 			background: #FFF;
 			box-shadow: 0 0 6px #A1A1A1;
 			margin-top: 30px;
+			
 		}
 
 		div#publish textarea {
 			width: 365px;
-			height: 150px;
+			height: 125px;
 			display: block;
 			margin: auto;
 			border-radius: 5px;
@@ -130,23 +131,25 @@ function unlove()
 		}
 
 		div#publish img {
-			margin-top: 0px;
-			margin-left: 10px;
+			margin-top: 10px;
+			margin-left: 16px;
 			width: 40px;
 			cursor: pointer;
 		}
 
 		div#publish input[type="submit"] {
-			width: 70px;
-			height: 25px;
+		
 			border-radius: 3px;
 			float: right;
 			margin-right: 15px;
 			border: none;
-			margin-top: 5px;
+			margin-top: 15px;
 			background: #4169E1;
 			color: #FFF;
 			cursor: pointer;
+			padding: 15px;
+			padding-top: 5px;
+			padding-bottom: 5px;
 		}
 
 		div#publish input[type="submit"]:hover {
@@ -154,7 +157,7 @@ function unlove()
 		}
 
 		div.pub {
-			width: 400px;
+			width: 550px;
 			min-height: 70px;
 			max-height: 1000px;
 			display: block;
@@ -164,6 +167,8 @@ function unlove()
 			background-color: #FFF;
 			box-shadow: 0 0 6px #A1A1A1;
 			margin-top: 30px;
+			padding-bottom: 25px;
+			
 		}
 
 		div.pub a {
@@ -184,7 +189,7 @@ function unlove()
 
 		div.pub span {
 			display: block;
-			margin: auto;
+			margin-left: 15px;
 			width: 380px;
 			margin-top: 10px;
 		}
@@ -192,7 +197,7 @@ function unlove()
 		div.pub img {
 			display: block;
 			margin: auto;
-			width: 100%;
+			width: 90%;
 			margin-top: 10px;
 			border-bottom-left-radius: 5px;
 			border-bottom-right-radius: 5px;
@@ -202,11 +207,9 @@ function unlove()
 			width: 400px;
 			height: 30px;
 			display: block;
-			margin: auto;
 			border: none;
 			border-radius: 5px;
-			background: #007fff;
-			margin-top: 5px;
+			margin-left: 480px;
 		}
 
 		div#love p {
@@ -224,10 +227,14 @@ function unlove()
 
 		#comentar {
 			float: right;
-			margin-top: 15px;
-			margin-right: 15px;
+			margin-top: 5px;
+			margin-right: 25px;
+			margin-left: 18px;
 			cursor: pointer;
-			width: 13px;
+			width: 35px;
+		}
+		#footer{
+			color: white;
 		}
 	</style>
 </header>
@@ -236,9 +243,9 @@ function unlove()
 	<div id="publish">
 		<form method="POST" enctype="multipart/form-data">
 			<br />
-			<textarea placeholder="Escreve uma publicacão nova" name="texto"></textarea>
+			<textarea placeholder="Escreva e publique uma imagem para seus amigos..." name="texto"></textarea>
 			<label for="file-input">
-				<img src="img/imagegrey.png" title="Inserir uma fotografia" />
+				<img src="img/iconeimagem.png" title="Inserir uma fotografia" />
 			</label>
 			<input type="submit" value="Publicar" name="publish" />
 
@@ -257,7 +264,7 @@ function unlove()
 
 		if ($pub['imagem'] == "") {
 			echo '<div class="pub" id="' . $id . '">
-					<a href="comentarios.php?id=' . $id . '"><img id="comentar" src="img/chat.png" width="13" ></a>
+					<a href="comentarios.php?id=' . $id . '"><img id="comentar" src="img/iconechat.jpg" width="13" ></a>
 					<p><a href="profile.php?id=' . $saber['id'] . '">' . $nome . '</a> - ' . $pub["data"] . '</p>
 					<span>' . $pub['texto'] . '</span><br />
 				</div>
@@ -273,7 +280,7 @@ function unlove()
 			echo '</div>';
 		} else {
 			echo '<div class="pub" id="' . $id . '">
-					<a href="comentarios.php?id=' . $id . '"><img id="comentar" src="img/chat.png" width="13" ></a>
+					<a href="comentarios.php?id=' . $id . '"><img id="comentar" src="img/iconechat.jpg" width="13" ></a>
 					<p><a href="profile.php?id=' . $saber['id'] . '">' . $nome . '</a> - ' . $pub["data"] . '</p>
 					<span>' . $pub['texto'] . '</span>
 					<img src="upload/' . $pub["imagem"] . '" />

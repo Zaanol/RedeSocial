@@ -1,5 +1,6 @@
 <?php
 	$dbServidor = "127.0.0.1:3307";
+
 	$dbUsuario  = "root";
 	$dbSenha    = "";
 	$dbBanco    = "redeSocial";

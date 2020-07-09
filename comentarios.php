@@ -59,16 +59,17 @@ if (isset($_POST['publish'])) {
 		}
 
 		div#publish input[type="submit"] {
-			width: 50px;
-			height: 30px;
 			border-radius: 3px;
 			float: right;
 			margin-right: 15px;
 			border: none;
-			margin-top: 10px;
+			margin-top: 15px;
 			background: #4169E1;
 			color: #FFF;
 			cursor: pointer;
+			padding: 15px;
+			padding-top: 5px;
+			padding-bottom: 5px;
 		}
 
 		div#publish input[type="submit"]:hover {
@@ -110,6 +111,9 @@ if (isset($_POST['publish'])) {
 			width: 380px;
 			margin-top: 10px;
 		}
+		#footer{
+			color: white;
+		}
 	</style>
 </header>
 
@@ -135,6 +139,21 @@ if (isset($_POST['publish'])) {
 	}
 	?>
 	<br />
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
 	<div id="footer">
 		<p>&copy; Rede Social, 2020 - Todos os direitos reservados</p>
 	</div><br />
