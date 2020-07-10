@@ -268,16 +268,16 @@ function unlove()
 					<p><a href="profile.php?id=' . $saber['id'] . '">' . $nome . '</a> - ' . $pub["data"] . '</p>
 					<span>' . $pub['texto'] . '</span><br />
 				</div>
-				<div id="love">';
+				<center><div id="love">';
 			$email_check = mysqli_query($conexao, "SELECT user FROM loves WHERE pub='$id' AND user='$login_cookie'");
 			$do_email_check = mysqli_num_rows($email_check);
 			if ($do_email_check >= 1) {
 				$loves = $loves - 1;
-				echo '<p><a href="index.php?unlove=' . $id . '">Gostei</a> | Tu e mais ' . $loves . ' gostaram disto</p>';
+				echo '<p><a href="index.php?unlove=' . $id . '">Gostei</a> | Você e mais ' . $loves . ' gostaram disto</p>';
 			} else {
 				echo '<p><a href="index.php?love=' . $id . '">Gostar</a> | ' . $loves . ' gostaram disto</p>';
 			}
-			echo '</div>';
+			echo '</div></center>';
 		} else {
 			echo '<div class="pub" id="' . $id . '">
 					<a href="comentarios.php?id=' . $id . '"><img id="comentar" src="img/iconechat.jpg" width="13" ></a>
@@ -285,16 +285,16 @@ function unlove()
 					<span>' . $pub['texto'] . '</span>
 					<img src="upload/' . $pub["imagem"] . '" />
 				</div>
-				<div id="love">';
+				<center><div id="love">';
 			$email_check = mysqli_query($conexao, "SELECT user FROM loves WHERE pub='$id' AND user='$login_cookie'");
 			$do_email_check = mysqli_num_rows($email_check);
 			if ($do_email_check >= 1) {
 				$loves = $loves - 1;
-				echo '<p><a href="index.php?unlove=' . $id . '">Gostei</a> | Tu e mais ' . $loves . ' gostaram disto</p>';
+				echo '<p><a href="index.php?unlove=' . $id . '">Gostei</a> | Você e mais ' . $loves . ' gostaram disto</p>';
 			} else {
 				echo '<p><a href="index.php?love=' . $id . '">Gostar</a> | ' . $loves . ' gostaram disto</p>';
 			}
-			echo '</div>';
+			echo '</div></center>';
 		}
 	}
 	?>

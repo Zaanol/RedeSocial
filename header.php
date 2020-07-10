@@ -5,6 +5,15 @@ $login_cookie = $_COOKIE['login'];
 if (!isset($login_cookie)) {
 	header("Location: login.php");
 }
+
+$usuario = mysqli_fetch_assoc(mysqli_query($conexao, "SELECT * FROM users WHERE email='$login_cookie'"));
+
+if ($usuario["img"] == "") {
+	$imagemUsuario = "img/user.png";
+} else {
+	$imagemUsuario = "upload/".$usuario['img'];
+}
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -44,7 +53,7 @@ if (!isset($login_cookie)) {
 			<ul class="form-inline my-2 my-lg-0">
 				<div class="row align-items-end">
 					<div class="col-sm">
-						<a href="inbox.php" data-toggle="tooltip" title="Inbox de Conversas">
+						<a href="chat.php" data-toggle="tooltip" title="Inbox de Conversas">
 							<div class="col align-self-end">
 								<div id="qtdMensagens"></div>
 							</div>
